@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🦇 Vintage Goth | Crimson & Midnight Blue</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0a0f;
+            background-image: linear-gradient(135deg, #0a0a0f 0%, #111217 50%, #0d0b12 100%);
+            font-family: 'Courier New', 'Segoe UI', 'Georgia', monospace;
+            color: #ddd6e8;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* cards with deep blue, gray, and blood red accents */
+        .card {
+            background: rgba(12, 12, 20, 0.88);
+            backdrop-filter: blur(3px);
+            border: 1px solid #2a2a40;
+            border-radius: 24px;
+            padding: 28px;
+            margin-bottom: 28px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            transition: all 0.2s;
+        }
+        .card:hover {
+            border-color: #8b3a4a;
+            box-shadow: 0 0 12px rgba(139, 58, 74, 0.2);
+        }
+
+        /* title styles */
+        h1 {
+            font-size: 3rem;
+            text-align: center;
+            font-family: 'Georgia', serif;
+            letter-spacing: 5px;
+            background: linear-gradient(135deg, #c0c0c0, #6b7c9e, #8b3a4a);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        }
+
+        .about {
+            text-align: center;
+            font-size: 1.3rem;
+            border-top: 1px solid #3a3a55;
+            border-bottom: 1px solid #3a3a55;
+            display: inline-block;
+            width: 100%;
+            padding: 10px;
+            margin: 12px 0;
+            color: #b0b8d4;
+            letter-spacing: 2px;
+        }
+
+        /* profile row */
+        .profile {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: center;
+        }
+        .profile img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #5c6e8f;
+            box-shadow: 0 0 0 2px #2a2a40, 0 5px 15px black;
+            transition: 0.2s;
+        }
+        .profile img:hover {
+            border-color: #9e3f52;
+        }
+        .info p {
+            margin: 12px 0;
+            padding: 8px 12px;
+            background: rgba(20, 20, 35, 0.6);
+            border-left: 3px solid #7e8ba8;
+            border-radius: 12px;
+        }
+        .info i {
+            width: 28px;
+            display: inline-block;
+        }
+
+        /* section titles */
+        h3 {
+            font-size: 1.6rem;
+            margin-bottom: 18px;
+            font-family: 'Georgia', serif;
+            border-left: 5px solid #9e3f52;
+            padding-left: 15px;
+            letter-spacing: 1px;
+            color: #cbd5e8;
+        }
+
+        /* what i do - skill pills with different accents */
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 10px;
+        }
+        .skills span {
+            background: #18182a;
+            padding: 8px 20px;
+            border-radius: 40px;
+            border: 1px solid #3d4b6e;
+            font-size: 0.9rem;
+            transition: 0.2s;
+        }
+        .skills span:nth-child(odd) { border-left: 3px solid #5e7a9e; }
+        .skills span:nth-child(even) { border-left: 3px solid #9e3f52; }
+        .skills span:hover {
+            background: #25253d;
+            border-color: #b04a60;
+        }
+
+        /* achievements grid */
+        .achievements, .music-game {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 15px;
+        }
+        .achievements div, .music-game div {
+            background: #131325;
+            padding: 14px 18px;
+            border-radius: 20px;
+            flex: 1;
+            border-bottom: 2px solid #5b6d8f;
+            font-weight: 500;
+        }
+        .achievements div i, .music-game div i {
+            margin-right: 10px;
+            color: #c25d73;
+        }
+
+        /* artwork gallery */
+        .art-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .art-item {
+            background: #111122;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid #323a55;
+            transition: 0.2s;
+        }
+        .art-item:hover {
+            transform: translateY(-4px);
+            border-color: #b2546a;
+        }
+        .art-item img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            display: block;
+        }
+        .art-caption {
+            padding: 10px;
+            text-align: center;
+            font-size: 0.8rem;
+            background: #0e0e1c;
+            color: #bfc7e0;
+        }
+
+        /* contact buttons with red & blue tones */
+        .contact {
+            display: flex;
+            gap: 18px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .contact a {
+            background: #151529;
+            padding: 10px 25px;
+            border-radius: 40px;
+            text-decoration: none;
+            color: #e2d9f0;
+            border: 1px solid #4a5a7a;
+            transition: 0.2s;
+            font-weight: 500;
+        }
+        .contact a:hover {
+            background: #262242;
+            border-color: #bf5d73;
+            color: #f0e6ff;
+            transform: scale(1.02);
+        }
+
+        hr {
+            border-color: #353b55;
+            margin: 15px 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.75rem;
+            color: #7e89aa;
+        }
+
+        @media (max-width: 700px) {
+            .profile { flex-direction: column; text-align: center; }
+            h1 { font-size: 2.2rem; }
+        }
+
+        /* additional red/blue accents */
+        ::selection {
+            background: #8b3a4a;
+            color: #f0eef7;
+        }
+        .accent-text {
+            color: #bf7b8f;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- TITLE: PORTFOLIO + about me -->
+    <div class="card">
+        <h1>🦇 PORTFOLIO ⚔️</h1>
+        <div class="about">✦ about me ✦</div>
+        <div style="text-align: center; font-size: 0.9rem; margin-top: 8px; color: #8f9bbd;">❄️ tonight we'll be eating fish. ❄️</div>
+    </div>
+
+    <!-- PROFILE: FACE IMAGE + NAME, AGE, WHERE, HOBBY -->
+    <div class="card">
+        <div class="profile">
+            <!-- 👇 PUT YOUR FACE IMAGE URL HERE 👇 -->
+            <img src="https://media.discordapp.net/attachments/1399331805752197233/1504168001262583929/WhatsApp_Image_2026-05-14_at_00.05.03.jpeg?ex=6a06011d&is=6a04af9d&hm=7a2e8e0adf027140eacde42af7de8ae36c99040f46ce0c2781de36f8f3c5e2b7&=&format=webp&width=587&height=782" alt="profile portrait">
+            <div class="info">
+                <p><i>🖤</i> <strong>NAME:</strong> Veronika Odelia</p>
+                <p><i>✨️</i> <strong>Birthday:</strong> 12 August 2009</p>
+                <p><i>🕯️</i> <strong>AGE:</strong> 17 years old</p>
+                <p><i>📍</i> <strong>WHERE:</strong> Indonesia, West Jakarta</p>
+                <p><i>📖</i> <strong>HOBBY:</strong> drawing, writing story, gaming, and crafting</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- WHAT I DO? -->
+    <div class="card">
+        <h3>⚡ what i do? ⚡</h3>
+        <div class="skills">
+            <span>🎨 art commission!</span>
+            <span>💻 illustration</span>
+            <span>📸 cosplaying</span>
+            <span>🖋️ writing story</span>
+            <span>🐐 gaming</span>
+        </div>
+    </div>
+
+    <!-- MY ACHIEVEMENTS -->
+    <div class="card">
+        <h3>🏆 my achievements!!</h3>
+        <div class="achievements">
+            <div><i>🏅</i> Won 2nd place art competition, 2018</div>
+            <div><i>📰</i> Semi finalist of Wardaya Math and Science competition, in science subject, 2023</div>
+            <div><i>🌙</i> Finalist creative poster from UNTAR (University Tarumanegara), 2025</div>
+        </div>
+    </div>
+
+    <!-- FAVORITE MUSIC & ARTIST + FAVORITE GAME -->
+    <div class="card">
+        <h3>🎵🎮 my favorite things!!</h3>
+        <div class="music-game">
+            <div><i>🎸</i> <strong>MUSIC ARTIST</strong><br>Fuji Kaze, Slipknot, Type O Negative, Bôa, Radiohead, Deftones, and Poppy</div>
+            <div><i>🎮</i> <strong>FAVORITE GAME</strong><br>Reverse 1999, Cookie Run Kingdom, Mobile Legend, and Infinity Nikki</div>
+        </div>
+    </div>
+
+    <!-- ARTWORK GALLERY (place to put your art) -->
+    <div class="card">
+        <h3>🩸 my artwork gallery</h3>
+        <div class="art-grid">
+            <!-- 👇 REPLACE IMAGE URLS WITH YOUR ART 👇 -->
+            <div class="art-item">
+                <img src="https://cdn.discordapp.com/attachments/1399331805752197233/1504164625522884668/Untitled137.png?ex=6a05fdf8&is=6a04ac78&hm=eea5650dcaf291db21f812679846c813c98d46dc2dcf5e254c3930ea20831cc4&" alt="art 1">
+                <div class="art-caption">"Gachapon Bot art competition"</div>
+            </div>
+            <div class="art-item">
+                <img src="https://cdn.discordapp.com/attachments/1399331805752197233/1504164624684155062/Untitled28_Restored2.png?ex=6a05fdf8&is=6a04ac78&hm=a243354f8e409b3a40679ef0177e8d22f336553dc5f82e2107e7c3f892f932fc&" alt="art 2">
+                <div class="art-caption">"Clip Studio Paint art competition!"</div>
+            </div>
+            <div class="art-item">
+                <img src="https://cdn.discordapp.com/attachments/1399331805752197233/1504164626781179944/Untitled10.png?ex=6a05fdf9&is=6a04ac79&hm=0fc94f8994b98f2da723e9782a9bf0b2dfc45206d0fc3a441e5f465ad32afff1&" alt="art 3">
+                <div class="art-caption">"Meower Cake"</div>
+            </div>
+            <div class="art-item">
+                <img src="https://cdn.discordapp.com/attachments/1399331805752197233/1504164627448070363/Untitled12.png?ex=6a05fdf9&is=6a04ac79&hm=15cd74c5f14d6f033a547329faa7206ff01da6330c744067e534706fd2e193d7&" alt="art 4">
+                <div class="art-caption">"Radioactive Art"</div>
+            </div>
+            <div class="art-item">
+                <img src="https://cdn.discordapp.com/attachments/1399331805752197233/1504168301364904066/image.png?ex=6a060165&is=6a04afe5&hm=501d68850eff1f0fdad44c0a83c4f535b60728caaee1db562b242588ff7e274b" alt="art 5">
+                <div class="art-caption">"Best Of Me"</div>
+                </div>
+            <div class="art-item">
+                <img src="https://cdn.discordapp.com/attachments/1399331805752197233/1504164627984945273/Untitled170.png?ex=6a05fdf9&is=6a04ac79&hm=5d92b52fddef66057678fa2b86398f537fba74d68ba121c2f7487556971c9943&" alt="art 6">
+                <div class="art-caption">"Messmer"</div>
+        </div>
+    </div>
+
+    <!-- CONTACT / SOCIAL (optional) -->
+    <div class="card">
+        <h3>🌙 Contact me!</h3>
+        <div class="contact">
+            <a href="#">📷 @Ronica_harmonica</a>
+        </div>
+        <div style="text-align: center; margin-top: 18px; font-size: 0.8rem;">
+            <span style="color: #b56278;">✦</span> open for dark commissions & collabs <span style="color: #5e7c9c;">✦</span>
+        </div>
+    </div>
